@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--顶部操作栏-->
+    <LinearLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/head_card"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_vertical">
+        <android.support.design.widget.TabLayout
+            android:id="@+id/topNavi"
+            app:tabIndicatorColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </android.support.design.widget.TabLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+            <ImageButton
+                android:id="@+id/app_bar_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_appbar_search_small"
+                android:layout_margin="@dimen/marginHorizon"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_commu"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/marginVertical"
+        app:layout_constraintTop_toBottomOf="@id/topbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+    </android.support.v4.view.ViewPager>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+        <ImageView
+            android:id="@+id/hero_pic"
+            android:layout_width="@dimen/head_pic_h_w"
+            android:layout_height="@dimen/head_pic_h_w"
+            android:background="@drawable/ic_launcher"
+            android:layout_margin="2dp"/>
+        <LinearLayout
+            android:id="@+id/linearlay1"
+            android:layout_toRightOf="@id/hero_pic"
+            android:layout_marginHorizontal="@dimen/marginHorizon"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/head_pic_h_w"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/vic_los_lab"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:layout_marginBottom="@dimen/marginVertical"
+                android:text="胜利 4/2/2"
+                android:textSize="@dimen/textsize_large"
+                android:layout_toRightOf="@id/hero_pic"/>
+            <TextView
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:text="经典匹配"/>
+        </LinearLayout>
+        <TextView
+            android:layout_toRightOf="@id/linearlay1"
+            android:layout_alignParentRight="true"
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_centerVertical="true"
+            android:text="03-29 20:02"/>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

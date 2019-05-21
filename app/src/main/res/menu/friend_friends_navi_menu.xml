@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/my_friends"
+        android:title="我的好友"
+        android:icon="@drawable/baseline_perm_identity_black_18"/>
+    <item android:id="@+id/my_focus"
+        android:title="关注"
+        android:icon="@drawable/baseline_people_black_18"/>
+    <item android:id="@+id/my_fans"
+        android:title="粉丝"
+        android:icon="@drawable/baseline_insert_emoticon_black_18"/>
+</menu>
