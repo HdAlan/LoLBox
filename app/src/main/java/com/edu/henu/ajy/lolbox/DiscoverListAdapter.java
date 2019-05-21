@@ -21,11 +21,11 @@ import java.io.InputStream;
 import java.util.List;
 
 public class DiscoverListAdapter extends BaseAdapter {
-    private List<DiscoverRecommendItem> itemList;
+    private List<DiscoverListItem> itemList;
     private Context mContext;
     private Activity activity;
 
-    public DiscoverListAdapter(List<DiscoverRecommendItem> itemList,Activity activity){
+    public DiscoverListAdapter(List<DiscoverListItem> itemList, Activity activity){
         this.itemList = itemList;
         this.activity = activity;
     }
@@ -47,7 +47,7 @@ public class DiscoverListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        DiscoverRecommendItem item = (DiscoverRecommendItem) getItem(position);
+        DiscoverListItem item = (DiscoverListItem) getItem(position);
         ViewHolder viewHolder;
         View view;
         if (convertView==null){
@@ -68,7 +68,7 @@ public class DiscoverListAdapter extends BaseAdapter {
     }
 
     public void setImage(String path, final ViewHolder holder){
-        HttuUtil.getJsonArray("http://henuajy.zicp.vip/LolboxImages/"+path,"", new Callback() {
+        HttpUtil.getJsonArray("http://henuajy.zicp.vip/LolboxImages/"+path,"", new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 activity.runOnUiThread(new Runnable() {

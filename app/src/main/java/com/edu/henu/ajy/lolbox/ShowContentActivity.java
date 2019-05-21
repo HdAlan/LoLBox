@@ -37,6 +37,7 @@ public class ShowContentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_content);
+        getSupportActionBar().hide();
 
         titleText = findViewById(R.id.title);
         authorText = findViewById(R.id.author);
@@ -56,7 +57,7 @@ public class ShowContentActivity extends AppCompatActivity {
     }
 
     public void setImageContent(String imagepath){
-        HttuUtil.getJsonArray(MainActivity.PICTUREPATHPRE+imagepath,"", new Callback() {
+        HttpUtil.getJsonArray(MainActivity.PICTUREPATHPRE+imagepath,"", new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 runOnUiThread(new Runnable() {

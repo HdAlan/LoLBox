@@ -1,20 +1,31 @@
 package com.edu.henu.ajy.lolbox;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class CommuListAdapter extends BaseAdapter {
     private Context mContext;
     private List<CommunicateItem> list;
-    public CommuListAdapter(Context mContext,List<CommunicateItem> list){
-        this.mContext = mContext;
+    private Activity activity;
+    public CommuListAdapter(Activity activity,List<CommunicateItem> list){
+        this.activity = activity;
         this.list = list;
     }
     @Override
@@ -38,7 +49,7 @@ public class CommuListAdapter extends BaseAdapter {
         View view;
         ViewHolder viewHolder;
         if(convertView == null){
-            view = LayoutInflater.from(getmContext()).inflate(R.layout.commu_all_page_item,parent,false);
+            view = LayoutInflater.from(activity).inflate(R.layout.commu_all_page_item,parent,false);
             viewHolder = new ViewHolder();
             viewHolder.headImage = view.findViewById(R.id.user_head_pic);
             viewHolder.usernameText = view.findViewById(R.id.user_name_text);
@@ -56,23 +67,74 @@ public class CommuListAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        viewHolder.headImage.setImageResource(commuAllItem.getHead_ico());
+        String headImgPath = commuAllItem.getHead_icoPath();
+        setImg(viewHolder.headImage,headImgPath);
         viewHolder.usernameText.setText(commuAllItem.getUserName());
-        viewHolder.levelText.setText(commuAllItem.getLevel());
-        viewHolder.levelText.setBackgroundResource(commuAllItem.getLevelBoardBg());
+        viewHolder.levelText.setText("lv."+commuAllItem.getLevel());
+        int level = commuAllItem.getLevel();
+        viewHolder.levelText.setBackgroundResource(setLevelLabBg(level));
         viewHolder.titleText.setText(commuAllItem.getTitle());
         viewHolder.summaryText.setText(commuAllItem.getSummary());
-        viewHolder.articalImage.setImageResource(commuAllItem.getArticalImg());
+        String articalImgPath = commuAllItem.getArticalImgPath();
+        setImg(viewHolder.articalImage,articalImgPath);
         viewHolder.articalCateText.setText(commuAllItem.getArticalCate());
         viewHolder.articalTimeText.setText(commuAllItem.getArticalTime());
-        viewHolder.articalCommentCountText.setText(commuAllItem.getArticalCommCounts());
-        viewHolder.articalLikeCountText.setText(commuAllItem.getArticalLikeCounts());
+        viewHolder.articalCommentCountText.setText(commuAllItem.getArticalCommCounts()+"");
+        viewHolder.articalLikeCountText.setText(commuAllItem.getArticalLikeCounts()+"");
 
         return view;
     }
 
-    public Context getmContext() {
-        return mContext;
+    public int setLevelLabBg(int level){
+        if (level==1){
+            return R.color.colorGreen;
+        }else if(level==2){
+            return R.color.colorLightBlue;
+        }else if(level==3){
+            return R.color.colorIndigo;
+        }else if(level==4){
+            return R.color.colorPink;
+        }else if(level==5){
+            return R.color.colorRed;
+        }else if(level==6){
+            return R.color.colorOrange;
+        }else if(level==7){
+            return R.color.colorGray;
+        }else if(level==8){
+            return R.color.colorBlack;
+        }else if(level==9){
+            return R.color.colorAccent;
+        }else if(level==10){
+            return R.color.colorPrimary;
+        }
+        return R.color.colorPrimaryDark;
+    }
+
+
+    public void setImg(final ImageView view, String imgPath){
+        HttpUtil.getJsonArray(MainActivity.PICTUREPATHPRE + imgPath, "", new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(activity,"网络错误",Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                InputStream in = response.body().byteStream();
+                final Bitmap bitmap = BitmapFactory.decodeStream(in);
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        view.setImageBitmap(bitmap);
+                    }
+                });
+            }
+        });
     }
 
     class ViewHolder{

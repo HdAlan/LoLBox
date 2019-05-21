@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -25,7 +26,7 @@ import okhttp3.Response;
  */
 public class DiscoverCompetitionPage extends Fragment {
     private static String DEFCODE = "0";
-    private List<DiscoverRecommendItem> list = new ArrayList<>();
+    private List<DiscoverListItem> list = new ArrayList<>();
     DiscoverListAdapter adapter;
     ListView listView;
     @Override
@@ -33,14 +34,20 @@ public class DiscoverCompetitionPage extends Fragment {
                              Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.discover_competition_page,container,false);
         listView = view.findViewById(R.id.competitionList);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DiscoverListItem item = list.get(position);
+                ShowContentActivity.startThisActivity(getActivity(),item.getTitle(),item.getAuthor(),item.getContent(),item.getPicturePath());
+            }
+        });
         IniList();
         return view;
     }
 
 
     private void IniList(){
-        String address = "http://henuajy.zicp.vip/LoLBoxServer_war_exploded/GetDiscoverRecommentListServlet";
-        HttuUtil.getJsonArray(address,DEFCODE, new Callback() {
+        HttpUtil.getJsonArray(MainActivity.GETDISCOVERLIST,DEFCODE, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
 
@@ -50,7 +57,7 @@ public class DiscoverCompetitionPage extends Fragment {
             public void onResponse(Call call, Response response) throws IOException {
                 String jsonData = response.body().string();
                 Gson gson = new Gson();
-                list = gson.fromJson(jsonData,new TypeToken<List<DiscoverRecommendItem>>(){}.getType());
+                list = gson.fromJson(jsonData,new TypeToken<List<DiscoverListItem>>(){}.getType());
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

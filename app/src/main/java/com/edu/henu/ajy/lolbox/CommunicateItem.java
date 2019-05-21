@@ -1,74 +1,117 @@
 package com.edu.henu.ajy.lolbox;
 
 public class CommunicateItem {
-    private int head_ico;
+    int id;
+    private String head_icoPath;
     private String userName;
-    private String level;
-    private int levelBoardBg;
+    private int level;
     private String title;
     private String summary;
-    private int articalImg;
+    private String articalImgPath;
     private String articalCate;
     private String articalTime;
-    private String articalCommCounts;
-    private String articalLikeCounts;
+    private int articalCommCounts;
+    private int articalLikeCounts;
 
-    public CommunicateItem(int head_ico, String userName, String level, int levelBoardBg, String title, String summary, int articalImg,
-                           String articalCate, String articalTime, String articalCommCounts, String articalLikeCounts){
-        this.head_ico = head_ico;
+    public CommunicateItem(String head_icoPath, String userName, int level,String title, String summary, String articalImgPath,
+                           String articalCate, String articalTime, int articalCommCounts, int articalLikeCounts){
+        this.head_icoPath = head_icoPath;
         this.userName = userName;
         this.level = level;
-        this.levelBoardBg = levelBoardBg;
         this.title = title;
         this.summary = summary;
-        this.articalImg = articalImg;
+        this.articalImgPath = articalImgPath;
         this.articalCate = articalCate;
         this.articalTime = articalTime;
         this.articalCommCounts = articalCommCounts;
         this.articalLikeCounts = articalLikeCounts;
     }
 
-    public int getHead_ico() {
-        return head_ico;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getHead_icoPath() {
+        return head_icoPath;
+    }
+
+    public void setHead_icoPath(String head_icoPath) {
+        this.head_icoPath = head_icoPath;
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public String getLevel() {
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public int getLevel() {
         return level;
     }
 
-    public int getLevelBoardBg() {
-        return levelBoardBg;
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public String getTitle() {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getSummary() {
         return summary;
     }
 
-    public int getArticalImg() {
-        return articalImg;
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getArticalImgPath() {
+        return articalImgPath;
+    }
+
+    public void setArticalImgPath(String articalImgPath) {
+        this.articalImgPath = articalImgPath;
     }
 
     public String getArticalCate() {
         return articalCate;
     }
 
+    public void setArticalCate(String articalCate) {
+        this.articalCate = articalCate;
+    }
+
     public String getArticalTime() {
         return articalTime;
     }
 
-    public String getArticalCommCounts() {
+    public void setArticalTime(String articalTime) {
+        this.articalTime = articalTime;
+    }
+
+    public int getArticalCommCounts() {
         return articalCommCounts;
     }
 
-    public String getArticalLikeCounts() {
+    public void setArticalCommCounts(int articalCommCounts) {
+        this.articalCommCounts = articalCommCounts;
+    }
+
+    public int getArticalLikeCounts() {
         return articalLikeCounts;
+    }
+
+    public void setArticalLikeCounts(int articalLikeCounts) {
+        this.articalLikeCounts = articalLikeCounts;
     }
 }

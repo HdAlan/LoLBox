@@ -15,7 +15,9 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    public static String GETDISCOVERLIST="http://henuajy.zicp.vip/lolboxserver/GetDiscoverRecommentListServlet";
     public static String PICTUREPATHPRE = "http://henuajy.zicp.vip/LolboxImages/";
+    public static String GETCOMMUNITYLIST="http://henuajy.zicp.vip/lolboxserver/GetCommunityListServlet";
     private BottomNavigationView bottomNavigationView;
     private int PageFlag = 1;
     @Override

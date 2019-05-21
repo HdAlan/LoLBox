@@ -27,7 +27,7 @@ import okhttp3.Response;
  */
 public class DiscoverRecommendPage extends Fragment {
     private static String DEFCODE = "1";
-    private List<DiscoverRecommendItem> list = new ArrayList<>();
+    private List<DiscoverListItem> list = new ArrayList<>();
     DiscoverListAdapter adapter;
     ListView listView;
     @Override
@@ -38,7 +38,7 @@ public class DiscoverRecommendPage extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DiscoverRecommendItem discoverRecommendItem = list.get(position);
+                DiscoverListItem discoverRecommendItem = list.get(position);
                 ShowContentActivity.startThisActivity(getActivity(),
                         discoverRecommendItem.getTitle(),
                         discoverRecommendItem.getAuthor(),
@@ -52,8 +52,7 @@ public class DiscoverRecommendPage extends Fragment {
 
 
     private void IniList(){
-        String address = "http://henuajy.zicp.vip/LoLBoxServer_war_exploded/GetDiscoverRecommentListServlet";
-        HttuUtil.getJsonArray(address,DEFCODE, new Callback() {
+        HttpUtil.getJsonArray(MainActivity.GETDISCOVERLIST,DEFCODE, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 getActivity().runOnUiThread(new Runnable() {
@@ -69,7 +68,7 @@ public class DiscoverRecommendPage extends Fragment {
             public void onResponse(Call call, Response response) throws IOException {
                 String jsonData = response.body().string();
                 Gson gson = new Gson();
-                list = gson.fromJson(jsonData,new TypeToken<List<DiscoverRecommendItem>>(){}.getType());
+                list = gson.fromJson(jsonData,new TypeToken<List<DiscoverListItem>>(){}.getType());
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

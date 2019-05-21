@@ -1,12 +1,12 @@
 package com.edu.henu.ajy.lolbox;
-public class DiscoverRecommendItem {
+public class DiscoverListItem {
     private int def;
     private String title;
     private String author;
     private String picturePath;
     private String content;
 
-    public DiscoverRecommendItem(int def,String title, String author,String picturePath,String content){
+    public DiscoverListItem(int def, String title, String author, String picturePath, String content){
         this.def = def;
         this.title = title;
         this.author = author;

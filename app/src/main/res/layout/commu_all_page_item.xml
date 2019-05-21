@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/user_name_text"
                 android:text="Lv.16"
+                android:paddingHorizontal="2sp"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/textsizeSmall"/>
         </LinearLayout>
@@ -79,12 +80,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2"
-                android:textSize="@dimen/textsize_nomal"/>
-            <TextView
-                android:id="@+id/time_units"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="分钟前"
                 android:textSize="@dimen/textsize_nomal"/>
             <TextView
                 android:layout_width="wrap_content"
