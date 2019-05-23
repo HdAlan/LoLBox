@@ -125,21 +125,18 @@
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/kennen_square_0"
                         android:layout_marginLeft="@dimen/margin_shortshort_horizon"/>
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/annie_square_0"
                         android:layout_marginHorizontal="@dimen/margin_shortshort_horizon"/>
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/blitzcrank_square_0"
                         android:layout_marginHorizontal="@dimen/margin_shortshort_horizon"/>
                 </LinearLayout>
                 <LinearLayout
@@ -152,21 +149,18 @@
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/brand_square_0"
                         android:layout_marginHorizontal="@dimen/margin_shortshort_horizon"/>
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/ezreal_square_0"
                         android:layout_marginHorizontal="@dimen/margin_shortshort_horizon"/>
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/draven_square_0"
                         android:layout_marginRight="@dimen/margin_shortshort_horizon"/>
                 </LinearLayout>
             </LinearLayout>
@@ -203,35 +197,30 @@
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/fiora_square_0"
                     android:layout_marginRight="@dimen/margin_normal_horizon"/>
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/evelynn_square_0"
                     android:layout_marginHorizontal="@dimen/margin_normal_horizon"/>
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/mordekaiser_square_0"
                     android:layout_marginHorizontal="@dimen/margin_normal_horizon"/>
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/riven_square_0"
                     android:layout_marginHorizontal="@dimen/margin_normal_horizon"/>
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/rumble_square_0"
                     android:layout_marginLeft="@dimen/margin_normal_horizon"/>
             </LinearLayout>
             <LinearLayout
@@ -266,29 +255,25 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/margin_shortshort_horizon"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/skin_akali"/>
+                    android:adjustViewBounds="true"/>
                 <ImageView
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_shortshort_horizon"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/skin_aso"/>
+                    android:adjustViewBounds="true"/>
                 <ImageView
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_shortshort_horizon"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/skin_jane"/>
+                    android:adjustViewBounds="true"/>
                 <ImageView
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_shortshort_horizon"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/skin_mking"/>
+                    android:adjustViewBounds="true"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

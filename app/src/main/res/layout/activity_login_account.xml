@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.LoginAccountActivity"
+    android:gravity="center">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:bufferType="editable"
+            android:text="密码登陆:"/>
+
+        <EditText
+            android:id="@+id/loginAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="输入您的手机号"
+            android:ems="11" />
+
+        <Button
+            android:id="@+id/nextStep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="下一步"/>
+        <TextView
+            android:id="@+id/registerText"
+            android:gravity="right"
+            android:textColor="@color/colorLightBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/author_text_size"
+            android:text="还没有账号？注册一个吧！"/>
+    </LinearLayout>
+</RelativeLayout>

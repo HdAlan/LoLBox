@@ -40,8 +40,7 @@
         <ImageButton
             android:id="@+id/head_pic"
             android:layout_width="@dimen/head_pic_h_w"
-            android:layout_height="@dimen/head_pic_h_w"
-            android:background="@drawable/head_pic"/>
+            android:layout_height="@dimen/head_pic_h_w"/>
         <LinearLayout
             android:layout_toRightOf="@id/head_pic"
             android:layout_width="wrap_content"

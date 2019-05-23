@@ -15,8 +15,7 @@
             <ImageView
                 android:id="@+id/user_head_pic"
                 android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/head_pic"/>
+                android:layout_height="30dp"/>
             <TextView
                 android:id="@+id/user_name_text"
                 android:layout_width="wrap_content"
@@ -46,17 +45,17 @@
             android:textColor="@color/colorBlack"/>
         <TextView
             android:id="@+id/artical_summary"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/artical_title"
+            android:maxLines="2"
             android:text="对声音好听得男孩子没有抵抗力"
             android:textSize="@dimen/textsize_large"/>
         <ImageView
             android:id="@+id/artical_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/artical_summary"
-            android:src="@drawable/kennen_square_0"/>
+            android:layout_below="@id/artical_summary"/>
         <LinearLayout
              android:layout_below="@id/artical_img"
             android:layout_width="match_parent"
