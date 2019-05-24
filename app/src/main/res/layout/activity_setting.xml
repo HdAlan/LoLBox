@@ -6,191 +6,143 @@
     android:layout_height="match_parent"
     tools:context=".Activity.SettingActivity"
     android:orientation="vertical">
-    <com.edu.henu.ajy.lolbox.Layouts.TitleLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
             <ImageView
+                android:id="@+id/headPic"
                 android:layout_width="100dp"
-                android:layout_height="100dp" />
-
+                android:layout_height="100dp"
+                android:src="@drawable/ahri_square_0"/>
             <TextView
+                android:id="@+id/userName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginRight="8dp"
-                android:text="名字"
-                android:textSize="18dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_alignParentRight="true"
-            android:paddingLeft="170dp">
-
+                android:text="名字"/>
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/change"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="right"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-
-                android:text="修改"
-                android:textSize="18dp" />
-
+                android:text="修改" />
             <ImageButton
-                android:layout_width="25dp"
-                android:layout_height="45dp"
-                android:layout_gravity="center"
-                android:paddingBottom="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@drawable/ic_appbar_foward_disable" />
+    </LinearLayout>
 
-
-        </LinearLayout>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="11dp"
-            android:text="安全与绑定"
-            android:textSize="18dp" />
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:paddingBottom="18dp"
-            android:background="@drawable/ic_appbar_foward_disable"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="15dp"
-            android:text="游戏账号管理"
-            android:textSize="18dp" />
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:paddingBottom="18dp"
-            android:background="@drawable/ic_appbar_foward_disable"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="15dp"
-            android:text="通用设置"
-            android:textSize="18dp" />
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:paddingBottom="18dp"
-            android:background="@drawable/ic_appbar_foward_disable"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="15dp"
-            android:text="隐私设置"
-            android:textSize="18dp" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingBottom="18dp"
-            android:background="@drawable/ic_appbar_foward_disable"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="15dp"
-            android:text="关于LOL盒子"
-            android:textSize="18dp" />
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:paddingBottom="18dp"
-            android:background="@drawable/ic_appbar_foward_disable"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="15dp"
-            android:text="检查更新"
-            android:textSize="18dp" />
-
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="45dp"
-            android:layout_gravity="center"
-            android:paddingBottom="18dp"
-            android:background="@drawable/ic_appbar_foward_disable"
-            android:layout_alignParentRight="true"/>
-    </RelativeLayout>
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="25dp"
-            android:gravity="center_horizontal"
-            android:text="退出登录"
-            android:textSize="18dp" />
-    </RelativeLayout>
+            android:text="安全与绑定"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_appbar_foward_disable"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="游戏账号管理"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_appbar_foward_disable"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="通用设置"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_appbar_foward_disable"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="隐私设置"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_appbar_foward_disable"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="关于LOL盒子"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_appbar_foward_disable"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="检查更新"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_appbar_foward_disable"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="退出登录"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_appbar_foward_disable"/>
+    </LinearLayout>
 </LinearLayout>
