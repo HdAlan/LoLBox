@@ -3,6 +3,7 @@ package com.edu.henu.ajy.lolbox.Models;
 public class CommunicateItem {
     int id;
     private String head_icoPath;
+    private String userAccount;
     private String userName;
     private int level;
     private String title;
@@ -25,6 +26,14 @@ public class CommunicateItem {
         this.articalTime = articalTime;
         this.articalCommCounts = articalCommCounts;
         this.articalLikeCounts = articalLikeCounts;
+    }
+
+    public String getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(String userAccount) {
+        this.userAccount = userAccount;
     }
 
     public int getId() {

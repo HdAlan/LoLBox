@@ -40,4 +40,13 @@ public class HttpUtil {
                 .build();
         client.newCall(request).enqueue(callback);
     }
+
+    public static void publishCommunity(RequestBody body,String address,String def,Callback callback){
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(address)
+                .post(body)
+                .build();
+        client.newCall(request).enqueue(callback);
+    }
 }

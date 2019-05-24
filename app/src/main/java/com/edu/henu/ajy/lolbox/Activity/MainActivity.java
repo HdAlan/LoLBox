@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     public static String GETDISCOVERLIST="http://henuajy.zicp.vip/lolboxserver/GetDiscoverRecommentListServlet";
     public static String PICTUREPATHPRE = "http://henuajy.zicp.vip/LolboxImages/";
     public static String GETCOMMUNITYLIST="http://henuajy.zicp.vip/lolboxserver/GetCommunityListServlet";
+    public static String PUBLISHCOMMUNITY="http://henuajy.zicp.vip/lolboxserver/InsertCommunityServlet";
     public static String LOGINSERVER = "http://henuajy.zicp.vip/lolboxserver/LoginServlet";
     public static String REGISTERSERVER = "http://henuajy.zicp.vip/lolboxserver/RegisterServlet";
     private BottomNavigationView bottomNavigationView;

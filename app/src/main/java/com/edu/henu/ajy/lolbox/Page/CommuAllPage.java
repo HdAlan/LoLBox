@@ -1,15 +1,19 @@
 package com.edu.henu.ajy.lolbox.Page;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.edu.henu.ajy.lolbox.Activity.PublishCommunityArticalActivity;
 import com.edu.henu.ajy.lolbox.Adapter.CommuListAdapter;
 import com.edu.henu.ajy.lolbox.Models.CommunicateItem;
 import com.edu.henu.ajy.lolbox.Utils.HttpUtil;
@@ -21,6 +25,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import okhttp3.Call;
@@ -35,13 +40,14 @@ public class CommuAllPage extends Fragment {
     private List<CommunicateItem> commuAllItems = new ArrayList<>();
     private CommuListAdapter adapter;
     private ListView listView;
+    private ImageView write_post;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.communicate_all_page,container,false);
         listView = view.findViewById(R.id.commu_list_all);
-
+        write_post = view.findViewById(R.id.write_post);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -50,10 +56,19 @@ public class CommuAllPage extends Fragment {
             }
         });
         getData();
+
+        Intent intent = getActivity().getIntent();
+        final String account = intent.getStringExtra("loginAccount");
+        write_post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PublishCommunityArticalActivity.startThisActivity(getActivity(),account);
+            }
+        });
         return view;
     }
 
-    private void getData(){
+    public void getData(){
         HttpUtil.getJsonArray(MainActivity.GETCOMMUNITYLIST, "1", new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -70,6 +85,8 @@ public class CommuAllPage extends Fragment {
                 String jsonData = response.body().string();
                 Gson gson = new Gson();
                 commuAllItems = gson.fromJson(jsonData,new TypeToken<List<CommunicateItem>>(){}.getType());
+                //使community页按时间先后顺序排列
+                Collections.reverse(commuAllItems);
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -79,5 +96,11 @@ public class CommuAllPage extends Fragment {
                 });
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getData();
     }
 }
