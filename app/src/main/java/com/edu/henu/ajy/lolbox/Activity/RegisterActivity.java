@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.edu.henu.ajy.lolbox.Models.User;
 import com.edu.henu.ajy.lolbox.R;
 import com.edu.henu.ajy.lolbox.Utils.HttpUtil;
 
@@ -69,7 +70,8 @@ public class RegisterActivity extends AppCompatActivity {
                         if (res.equals("true")){
                             Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
                             //注册成功后，直接自动登录
-                            MainActivity.startThisActivity(RegisterActivity.this,registeAccount,registePassword);
+                            User user = new User();
+                            MainActivity.startThisActivity(RegisterActivity.this,registeAccount,registePassword,user);
                         }else {
                             Toast.makeText(RegisterActivity.this,"注册失败",Toast.LENGTH_SHORT).show();
                         }

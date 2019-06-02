@@ -8,7 +8,13 @@ import android.widget.Toast;
 public class DBHelper extends SQLiteOpenHelper {
     public static final String CREATE_USER="create table User("
             +"userAccount varchar(32),"
-            +"userPassword varchar(32))";
+            +"userPassword varchar(32),"
+            +"headImgPath varchar(32),"
+            +"uname varchar(32),"
+            +"level int,"
+            +"focus int,"
+            +"fans int,"
+            +"thumbsup int)";
     private Context mContext;
     public DBHelper(Context context,  String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -23,6 +29,5 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 }

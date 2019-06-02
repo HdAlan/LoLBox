@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/topbar"
         android:layout_margin="@dimen/marginHorizon">
-        <ImageButton
+        <ImageView
             android:id="@+id/head_pic"
             android:layout_width="@dimen/head_pic_h_w"
             android:layout_height="@dimen/head_pic_h_w"/>
@@ -70,6 +70,7 @@
                     android:textColor="@color/colorWhite"
                     android:background="@color/colorGray"
                     android:textSize="@dimen/textsizeSmall"
+                    android:paddingHorizontal="@dimen/margin_short_horizon"
                     android:layout_toRightOf="@id/card_username"
                     android:layout_marginHorizontal="5dp"/>
                 <TextView

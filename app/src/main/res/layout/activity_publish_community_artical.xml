@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".Activity.PublishCommunityArticalActivity"
     android:orientation="vertical">
+    <com.edu.henu.ajy.lolbox.Layouts.TitleLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <EditText
         android:id="@+id/title"
         android:layout_width="match_parent"
@@ -30,9 +34,4 @@
         android:paddingHorizontal="5dp"
         android:paddingVertical="5dp"
         android:background="#fff"/>
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="发送"/>
 </LinearLayout>

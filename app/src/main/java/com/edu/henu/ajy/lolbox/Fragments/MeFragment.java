@@ -2,6 +2,8 @@ package com.edu.henu.ajy.lolbox.Fragments;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,15 +12,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.edu.henu.ajy.lolbox.Activity.MainActivity;
 import com.edu.henu.ajy.lolbox.Activity.SettingActivity;
 import com.edu.henu.ajy.lolbox.Adapter.MeViewPagerAdapter;
+import com.edu.henu.ajy.lolbox.Models.User;
 import com.edu.henu.ajy.lolbox.R;
+import com.edu.henu.ajy.lolbox.Utils.HttpUtil;
+import com.google.gson.Gson;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,8 +43,10 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private List<String> TitleList = new ArrayList<>();
-    private ImageButton btn_set,btn_headpic;
-    private TextView username,userFocus,userFocused;
+    private ImageButton btn_set;
+    private ImageView headImage;
+    private TextView username,userFocus,userFocused,userId,userLevel,userFocusCount,userFanCount,thumbs;
+    private User user;
     public MeFragment() {
         // Required empty public constructor
     }
@@ -42,6 +57,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         //获取用户名
         Intent intent = getActivity().getIntent();
+        user = (User) intent.getSerializableExtra("user");
         String account = intent.getStringExtra("loginAccount");
         //将mepage转换为一个视图
         view = LayoutInflater.from(getContext()).inflate(R.layout.myinfo_me_frag,container,false);
@@ -58,17 +74,23 @@ public class MeFragment extends Fragment implements View.OnClickListener {
         tabLayout.setupWithViewPager(viewPager);
         //获取按钮的实例
         btn_set = view.findViewById(R.id.app_bar_setting);
-        btn_headpic = view.findViewById(R.id.head_pic);
+        headImage = view.findViewById(R.id.head_pic);
         username = view.findViewById(R.id.card_username);
         userFocus = view.findViewById(R.id.userFocus);
         userFocused = view.findViewById(R.id.userFocused);
+        userId=view.findViewById(R.id.user_ID);
+        userLevel=view.findViewById(R.id.user_lv);
+        userFocusCount = view.findViewById(R.id.FocusCount);
+        userFanCount = view.findViewById(R.id.FocusedCount);
+        thumbs = view.findViewById(R.id.GetPraiseCount);
         //为按钮设置监听
         btn_set.setOnClickListener(this);
-        btn_headpic.setOnClickListener(this);
+        headImage.setOnClickListener(this);
         username.setOnClickListener(this);
         userFocus.setOnClickListener(this);
         userFocused.setOnClickListener(this);
 
+        setUserInfo(account);
         return view;
     }
 
@@ -76,7 +98,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.app_bar_setting:
-                SettingActivity.startThisActivity(getActivity());
+                SettingActivity.startThisActivity(getActivity(),user);
                 break;
             case R.id.head_pic:
                 Toast.makeText(getContext(),"headpic",Toast.LENGTH_SHORT).show();
@@ -92,5 +114,15 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                 break;
 
         }
+    }
+
+    public void setUserInfo(final String account){
+        username.setText(user.getUname());
+        userId.setText(user.getAccount());
+        userLevel.setText("Lv."+user.getLevel());
+        userFocusCount.setText(""+user.getFocus());
+        userFanCount.setText(""+user.getFans());
+        thumbs.setText(""+user.getThumbs());
+        HttpUtil.getImgBitmap(getActivity(),headImage,MainActivity.PICTUREPATHPRE,user.getHeadImgPath());
     }
 }

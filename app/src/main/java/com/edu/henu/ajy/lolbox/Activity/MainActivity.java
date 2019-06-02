@@ -11,9 +11,11 @@ import android.view.MenuItem;
 
 import com.edu.henu.ajy.lolbox.Fragments.CommunicateFragment;
 import com.edu.henu.ajy.lolbox.Fragments.DiscoverFragment;
-import com.edu.henu.ajy.lolbox.Fragments.FriendFragment;
 import com.edu.henu.ajy.lolbox.Fragments.MeFragment;
+import com.edu.henu.ajy.lolbox.Models.User;
 import com.edu.henu.ajy.lolbox.R;
+
+import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
     public static String GETDISCOVERLIST="http://henuajy.zicp.vip/lolboxserver/GetDiscoverRecommentListServlet";
@@ -22,13 +24,15 @@ public class MainActivity extends AppCompatActivity {
     public static String PUBLISHCOMMUNITY="http://henuajy.zicp.vip/lolboxserver/InsertCommunityServlet";
     public static String LOGINSERVER = "http://henuajy.zicp.vip/lolboxserver/LoginServlet";
     public static String REGISTERSERVER = "http://henuajy.zicp.vip/lolboxserver/RegisterServlet";
+    public static String GetUserInfo="http://henuajy.zicp.vip/lolboxserver/GetUserInfoServlet";
     private BottomNavigationView bottomNavigationView;
     private int PageFlag = 1;
 
-    public static void startThisActivity(Activity activity,String loginAccount,String loginPassword){
+    public static void startThisActivity(Activity activity, String loginAccount, String loginPassword,User user){
         Intent intent = new Intent(activity,MainActivity.class);
         intent.putExtra("loginAccount",loginAccount);
         intent.putExtra("loginPassword",loginPassword);
+        intent.putExtra("user",user);
         activity.startActivity(intent);
     }
     @Override
@@ -53,10 +57,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.bottomNavi_discover:
                         transition.replace(R.id.contentFrame,new DiscoverFragment()).commit();
                         PageFlag = 1;
-                        break;
-                    case R.id.bottomNavi_friends:
-                        transition.replace(R.id.contentFrame,new FriendFragment()).commit();
-                        PageFlag = 2;
                         break;
                     case R.id.bottomNavi_communicate:
                         transition.replace(R.id.contentFrame,new CommunicateFragment()).commit();
@@ -83,10 +83,6 @@ public class MainActivity extends AppCompatActivity {
                 case 1:
                     transaction.replace(R.id.contentFrame,new DiscoverFragment()).commit();
                     PageFlag = 1;
-                    break;
-                case 2:
-                    transaction.replace(R.id.contentFrame,new FriendFragment()).commit();
-                    PageFlag = 2;
                     break;
                 case 3:
                     transaction.replace(R.id.contentFrame,new CommunicateFragment()).commit();

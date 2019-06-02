@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.edu.henu.ajy.lolbox.Layouts.TitleLayout;
 import com.edu.henu.ajy.lolbox.Page.CommuAllPage;
 import com.edu.henu.ajy.lolbox.R;
 import com.edu.henu.ajy.lolbox.Utils.HttpUtil;
@@ -39,18 +42,24 @@ public class PublishCommunityArticalActivity extends AppCompatActivity {
     private String comment_count = "0";
     private String userAccount;
     private EditText titleE,contentE;
-    private Button submit;
+    private TitleLayout topBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish_community_artical);
-
+        getSupportActionBar().hide();
         Intent intent = getIntent();
         userAccount = intent.getStringExtra("loginAccount");
         titleE = findViewById(R.id.title);
+
+        topBar = findViewById(R.id.topBar);
+        topBar.setTitle("发表帖子");
+        topBar.setTitleGravity(Gravity.CENTER);
+        topBar.setBackVisible(View.VISIBLE);
+        topBar.hideForward();
+        topBar.showSendBtn();
         contentE = findViewById(R.id.content);
-        submit = findViewById(R.id.submit);
-        submit.setOnClickListener(new View.OnClickListener() {
+        topBar.getSend().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String title = titleE.getText().toString();
