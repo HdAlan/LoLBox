@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.edu.henu.ajy.lolbox.Layouts.TitleLayout;
 import com.edu.henu.ajy.lolbox.Models.User;
 import com.edu.henu.ajy.lolbox.R;
 import com.edu.henu.ajy.lolbox.Utils.DBHelper;
@@ -27,14 +28,24 @@ public class LoginAccountActivity extends AppCompatActivity {
     private User user;
     private DBHelper dbHelper;
     private SQLiteDatabase db;
+    private TitleLayout topBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_account);
-
+        getSupportActionBar().hide();
         user = new User();
         dbHelper = new DBHelper(LoginAccountActivity.this,"User.db",null,DBUSER_VERSION);
         db = dbHelper.getReadableDatabase();
+
+        topBar = findViewById(R.id.topBar);
+        topBar.setBackImage(R.drawable.cross_black);
+        topBar.hideForward();
+        topBar.hideTitle();
+        topBar.hideOperate();
+        topBar.showBack();
+        topBar.hideBottomBlackLine();
+
         //刚启动应用时，检测User表是否有数据，尝试直接登录，若User表有数据，则直接登录，否则，需要输入账号密码。
         tryLoginWithOutInput();
         loginAccountE = findViewById(R.id.loginAccount);

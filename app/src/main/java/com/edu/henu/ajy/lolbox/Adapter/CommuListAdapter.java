@@ -29,9 +29,11 @@ public class CommuListAdapter extends BaseAdapter {
     private Context mContext;
     private List<CommunicateItem> list;
     private Activity activity;
-    public CommuListAdapter(Activity activity,List<CommunicateItem> list){
+    private boolean isMaxLine;
+    public CommuListAdapter(Activity activity,List<CommunicateItem> list,boolean isMaxLine){
         this.activity = activity;
         this.list = list;
+        this.isMaxLine = isMaxLine;
     }
     @Override
     public int getCount() {
@@ -56,16 +58,19 @@ public class CommuListAdapter extends BaseAdapter {
         if(convertView == null){
             view = LayoutInflater.from(activity).inflate(R.layout.commu_all_page_item,parent,false);
             viewHolder = new ViewHolder();
-            viewHolder.headImage = view.findViewById(R.id.user_head_pic);
-            viewHolder.usernameText = view.findViewById(R.id.user_name_text);
-            viewHolder.levelText = view.findViewById(R.id.user_level);
-            viewHolder.titleText = view.findViewById(R.id.artical_title);
-            viewHolder.summaryText = view.findViewById(R.id.artical_summary);
-            viewHolder.articalImage = view.findViewById(R.id.artical_img);
-            viewHolder.articalCateText = view.findViewById(R.id.artical_cate);
-            viewHolder.articalTimeText = view.findViewById(R.id.artical_time);
-            viewHolder.articalCommentCountText = view.findViewById(R.id.comment_count);
-            viewHolder.articalLikeCountText = view.findViewById(R.id.like_count);
+            viewHolder.headImage = view.findViewById(R.id.head_pic);
+            viewHolder.usernameText = view.findViewById(R.id.uname);
+            viewHolder.levelText = view.findViewById(R.id.ulevel);
+            viewHolder.titleText = view.findViewById(R.id.content);
+            viewHolder.summaryText = view.findViewById(R.id.summary);
+            viewHolder.articalImage = view.findViewById(R.id.image);
+            viewHolder.articalCateText = view.findViewById(R.id.cate);
+            viewHolder.articalTimeText = view.findViewById(R.id.time);
+            viewHolder.articalCommentCountText = view.findViewById(R.id.commentCounts);
+            viewHolder.articalLikeCountText = view.findViewById(R.id.thumbupCounts);
+            if (isMaxLine){
+                viewHolder.summaryText.setMaxLines(2);
+            }
             view.setTag(viewHolder);
         }else{
             view = convertView;

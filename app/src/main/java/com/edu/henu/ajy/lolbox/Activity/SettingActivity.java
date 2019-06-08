@@ -50,7 +50,7 @@ public class SettingActivity extends AppCompatActivity {
         userCard = findViewById(R.id.userCard);
         userCard.setTitle(user.getUname());
         userCard.setOperate("修改");
-        HttpUtil.getImgBitmap(SettingActivity.this,userCard.getUserHead(),MainActivity.PICTUREPATHPRE,user.getHeadImgPath());
+        HttpUtil.setImg(SettingActivity.this,userCard.getUserHead(),MainActivity.PICTUREPATHPRE,user.getHeadImgPath());
         userCard.setUserHeadVisible(View.VISIBLE);
         //安全
         security= findViewById(R.id.security);

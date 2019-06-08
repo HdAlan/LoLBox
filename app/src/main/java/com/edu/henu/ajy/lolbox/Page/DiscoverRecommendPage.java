@@ -45,11 +45,7 @@ public class DiscoverRecommendPage extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DiscoverListItem discoverRecommendItem = list.get(position);
-                ShowContentActivity.startThisActivity(getActivity(),
-                        discoverRecommendItem.getTitle(),
-                        discoverRecommendItem.getAuthor(),
-                        discoverRecommendItem.getContent(),
-                        discoverRecommendItem.getPicturePath());
+                //ShowContentActivity.startThisActivity(getActivity(), discoverRecommendItem.getTitle(), discoverRecommendItem.getAuthor(), discoverRecommendItem.getContent(), discoverRecommendItem.getPicturePath());
             }
         });
         IniList();
@@ -80,7 +76,6 @@ public class DiscoverRecommendPage extends Fragment {
                     public void run() {
                         adapter = new DiscoverListAdapter(list,getActivity());
                         listView.setAdapter(adapter);
-                        Log.d("DiscoverRecommendPage","请求成功");
                     }
                 });
             }

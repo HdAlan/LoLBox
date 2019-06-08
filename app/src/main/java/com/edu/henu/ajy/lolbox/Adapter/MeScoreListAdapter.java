@@ -1,5 +1,6 @@
 package com.edu.henu.ajy.lolbox.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +9,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.edu.henu.ajy.lolbox.Activity.MainActivity;
 import com.edu.henu.ajy.lolbox.Models.MeScoreItem;
 import com.edu.henu.ajy.lolbox.R;
+import com.edu.henu.ajy.lolbox.Utils.HttpUtil;
 
 import java.util.List;
 
@@ -17,10 +20,11 @@ public class MeScoreListAdapter extends BaseAdapter {
 
     private List<MeScoreItem> scoreList;
     private Context mContext;
-
-    public MeScoreListAdapter(Context context, List<MeScoreItem> objects) {
+    private Activity activity;
+    public MeScoreListAdapter(Activity activity,Context context, List<MeScoreItem> objects) {
         this.scoreList = objects;
         this.mContext = context;
+        this.activity = activity;
     }
 
     @Override
@@ -37,7 +41,6 @@ public class MeScoreListAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
-
     public Context getContext(){
         return this.mContext;
     }
@@ -59,8 +62,9 @@ public class MeScoreListAdapter extends BaseAdapter {
             view = convertView;
             viewHolder = (ViewHolder) view.getTag();
         }
-        viewHolder.imageView.setImageResource(score.getHero_pic());
-        viewHolder.textView.setText(score.getScore());
+        //viewHolder.imageView.setImageResource(score.getHeroPicPath());
+        HttpUtil.setImg(activity,viewHolder.imageView, MainActivity.PICTUREPATHPRE,score.getHeroPicPath());
+        viewHolder.textView.setText(score.getFightRes());
         viewHolder.textView1.setText(score.getCategory());
         viewHolder.textView2.setText(score.getTime());
         return view;

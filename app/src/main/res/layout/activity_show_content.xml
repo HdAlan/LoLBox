@@ -1,57 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.ShowContentActivity"
     android:orientation="vertical">
+
     <com.edu.henu.ajy.lolbox.Layouts.TitleLayout
+        app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/actionBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <ScrollView
+    <ListView
+        android:id="@+id/commentsList"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/margin_normal_horizon">
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_normal_horizon"
+        app:layout_constraintBottom_toTopOf="@id/NaviComment"
+        app:layout_constraintTop_toBottomOf="@id/actionBar" />
+    <RelativeLayout
+        android:id="@+id/NaviComment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/colorWhite"
+            android:padding="5dp"
+            android:gravity="center_vertical">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/title_text_size"
-                android:layout_marginVertical="@dimen/marginVertical"
-                android:text="曝LMS赛区即将更换场馆 新场馆仅有网吧规模"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.8dp"
-                android:background="@color/colorGray"/>
-            <TextView
-                android:id="@+id/author"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/author_text_size"
-                android:layout_marginVertical="@dimen/margin_normal_horizon"
-                android:text="联盟吐槽君"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.8dp"
-                android:background="@color/colorGray"/>
-            <ImageView
-                android:id="@+id/image"
+                android:orientation="vertical">
+                <EditText
+                    android:id="@+id/commentText"
+                    android:hint="评论"
+                    android:gravity="top"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:paddingHorizontal="@dimen/margin_normal_horizon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorLowGray"/>
+                <TextView
+                    android:id="@+id/sendComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text="发送"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:background="@color/colorWhite"
+                    android:layout_gravity="right"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/thumbupBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin_short_horizon"/>
-            <TextView
-                android:id="@+id/content"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textSize="@dimen/content_text_size"/>
-        </LinearLayout>
-    </ScrollView>
+                android:orientation="vertical"
+                android:layout_marginHorizontal="@dimen/margin_normal_horizon">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/link_list_up"/>
+                <TextView
 
-</LinearLayout>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="123"
+                    android:textSize="8dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/commentBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/link_comment"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="123"
+                    android:textSize="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/CommentBoard"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:background="@color/colorWhite"-->
+            <!--android:visibility="gone">-->
+            <!--<EditText-->
+                <!--android:id="@+id/commentE"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="top"-->
+                <!--android:background="@color/colorWhite"-->
+                <!--android:lines="3"/>-->
+            <!--<Button-->
+                <!--android:id="@+id/sendComment"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="发送"-->
+                <!--android:background="@color/colorWhite"-->
+                <!--android:layout_gravity="right"/>-->
+        <!--</LinearLayout>-->
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

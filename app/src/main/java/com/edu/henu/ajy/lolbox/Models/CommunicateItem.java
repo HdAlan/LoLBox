@@ -1,6 +1,8 @@
 package com.edu.henu.ajy.lolbox.Models;
 
-public class CommunicateItem {
+import java.io.Serializable;
+
+public class CommunicateItem implements Serializable {
     int id;
     private String head_icoPath;
     private String userAccount;
@@ -13,6 +15,8 @@ public class CommunicateItem {
     private String articalTime;
     private int articalCommCounts;
     private int articalLikeCounts;
+    private int commentId;
+    private String articalAccount;
 
     public CommunicateItem(String head_icoPath, String userName, int level,String title, String summary, String articalImgPath,
                            String articalCate, String articalTime, int articalCommCounts, int articalLikeCounts){
@@ -27,6 +31,28 @@ public class CommunicateItem {
         this.articalCommCounts = articalCommCounts;
         this.articalLikeCounts = articalLikeCounts;
     }
+    public CommunicateItem(String uname, int level, String summary){
+        this.userName = uname;
+        this.level = level;
+        this.summary = summary;
+    }
+
+    public String getArticalAccount() {
+        return articalAccount;
+    }
+
+    public void setArticalAccount(String articalAccount) {
+        this.articalAccount = articalAccount;
+    }
+
+    public int getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(int commentId) {
+        this.commentId = commentId;
+    }
+
 
     public String getUserAccount() {
         return userAccount;

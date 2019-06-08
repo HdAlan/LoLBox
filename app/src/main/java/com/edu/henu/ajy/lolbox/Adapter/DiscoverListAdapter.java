@@ -81,7 +81,6 @@ public class DiscoverListAdapter extends BaseAdapter {
                         holder.iamge.setImageResource(R.mipmap.ic_launcher);
                     }
                 });
-                Log.d("ShowPic","访问服务器失败");
             }
 
             @Override
@@ -94,7 +93,6 @@ public class DiscoverListAdapter extends BaseAdapter {
                         holder.iamge.setImageBitmap(bitmap);
                     }
                 });
-                Log.d("ShowPic","访问服务器成功");
             }
         });
     }

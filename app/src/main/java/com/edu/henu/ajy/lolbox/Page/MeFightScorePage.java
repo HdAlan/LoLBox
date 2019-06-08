@@ -1,16 +1,24 @@
 package com.edu.henu.ajy.lolbox.Page;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.edu.henu.ajy.lolbox.Activity.MainActivity;
 import com.edu.henu.ajy.lolbox.Models.MeScoreItem;
 import com.edu.henu.ajy.lolbox.Adapter.MeScoreListAdapter;
 import com.edu.henu.ajy.lolbox.R;
+import com.edu.henu.ajy.lolbox.Utils.HttpUtil;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +31,7 @@ public class MeFightScorePage extends Fragment {
     private View view;
     private ListView scorelist;
     private List<MeScoreItem> scores = new ArrayList<>();
-
+    private MeScoreListAdapter listAdapter;
     public MeFightScorePage() {
         // Required empty public constructor
     }
@@ -35,23 +43,26 @@ public class MeFightScorePage extends Fragment {
         view = LayoutInflater.from(getContext()).inflate(R.layout.myinfo_fight_score_page,container,false);
         scorelist = view.findViewById(R.id.scorelist);
 
-        scores.add(new MeScoreItem(R.drawable.akali_square_0,"胜利 4/2/2","经典匹配","03-23 20:02"));
-        scores.add(new MeScoreItem(R.drawable.annie_square_0,"胜利 4/2/2","经典匹配","03-23 20:02"));
-        scores.add(new MeScoreItem(R.drawable.ezreal_square_0,"胜利 4/2/2","经典匹配","03-23 20:02"));
-        scores.add(new MeScoreItem(R.drawable.fiddlesticks_square_0,"胜利 4/2/2","经典匹配","03-23 20:02"));
-        scores.add(new MeScoreItem(R.drawable.fizz_square_0,"胜利 4/2/2","经典匹配","03-23 20:02"));
-        scores.add(new MeScoreItem(R.drawable.fiora_square_0,"胜利 4/2/2","经典匹配","03-23 20:02"));
-        scores.add(new MeScoreItem(R.drawable.irelia_square_0,"胜利 4/2/2","经典匹配","03-23 20:02"));
-        scores.add(new MeScoreItem(R.drawable.akali_square_0,"胜利 4/2/2","经典匹配","03-23 20:02"));
-        scores.add(new MeScoreItem(R.drawable.karma_square_0,"胜利 4/2/2","经典匹配","03-23 20:02"));
-        scores.add(new MeScoreItem(R.drawable.jax_square_0,"胜利 4/2/2","经典匹配","03-23 20:02"));
+        Intent intent = getActivity().getIntent();
+        String account = intent.getStringExtra("loginAccount");
 
-        MeScoreListAdapter listAdapter = new MeScoreListAdapter(this.getContext(),scores);
-        scorelist.setAdapter(listAdapter);
 
+        HttpUtil.setScoreList(this, MainActivity.GETSCORELIST,account);
         return view;
     }
 
+    public void initList(String jsonData){
+        Gson gson = new Gson();
+        scores = gson.fromJson(jsonData,new TypeToken<List<MeScoreItem>>(){}.getType());
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                listAdapter = new MeScoreListAdapter(getActivity(),getContext(),scores);
+                scorelist.setAdapter(listAdapter);
+            }
+        });
+
+    }
 
     @Override
     public void onStop() {

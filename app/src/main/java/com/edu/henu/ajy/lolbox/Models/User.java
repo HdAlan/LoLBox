@@ -13,6 +13,24 @@ public class User implements Serializable {
     private int focus;
     private int fans;
     private int thumbs;
+    private String email;
+    public User(String uname,String email,String account,String password){
+        this.uname = uname;
+        this.email = email;
+        this.account = account;
+        this.password = password;
+    }
+
+    public User(){
+        super();
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getAccount() {
         return account;

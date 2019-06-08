@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.LoginAccountActivity"
-    android:gravity="center">
+    android:orientation="vertical"
+    android:padding="30dp">
+    <com.edu.henu.ajy.lolbox.Layouts.TitleLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-
-        tools:ignore="MissingConstraints">
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:bufferType="editable"
-            android:text="密码登陆:"/>
+            android:text="密码登陆"
+            android:layout_marginVertical="@dimen/marginVertical"
+            android:textSize="25sp"/>
 
         <EditText
             android:id="@+id/loginAccount"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="输入您的手机号"
-            android:ems="11" />
-
+            android:ems="11"
+            android:textSize="20sp"
+            android:layout_marginVertical="@dimen/margin_normal_horizon"/>
         <Button
             android:id="@+id/nextStep"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="下一步"/>
+            android:text="下一步"
+            android:textSize="20sp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorBlack"
+            android:layout_marginVertical="@dimen/marginVertical"/>
         <TextView
             android:id="@+id/registerText"
             android:gravity="right"
             android:textColor="@color/colorLightBlue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/author_text_size"
+            android:textSize="@dimen/property_txt_size"
             android:text="还没有账号？注册一个吧！"/>
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

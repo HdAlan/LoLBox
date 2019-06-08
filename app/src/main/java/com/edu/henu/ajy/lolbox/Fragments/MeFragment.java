@@ -2,8 +2,6 @@ package com.edu.henu.ajy.lolbox.Fragments;
 
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -22,16 +20,9 @@ import com.edu.henu.ajy.lolbox.Adapter.MeViewPagerAdapter;
 import com.edu.henu.ajy.lolbox.Models.User;
 import com.edu.henu.ajy.lolbox.R;
 import com.edu.henu.ajy.lolbox.Utils.HttpUtil;
-import com.google.gson.Gson;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -123,6 +114,6 @@ public class MeFragment extends Fragment implements View.OnClickListener {
         userFocusCount.setText(""+user.getFocus());
         userFanCount.setText(""+user.getFans());
         thumbs.setText(""+user.getThumbs());
-        HttpUtil.getImgBitmap(getActivity(),headImage,MainActivity.PICTUREPATHPRE,user.getHeadImgPath());
+        HttpUtil.setImg(getActivity(),headImage,MainActivity.PICTUREPATHPRE,user.getHeadImgPath());
     }
 }

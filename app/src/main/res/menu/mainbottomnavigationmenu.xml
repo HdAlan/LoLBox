@@ -3,6 +3,9 @@
     <item android:id="@+id/bottomNavi_discover"
         android:icon="@drawable/nav_discover_ico"
         android:title="@string/discover_page_text"/>
+    <item android:id="@+id/bottomNavi_friends"
+        android:icon="@drawable/nav_friends_ico"
+        android:title="@string/friends_page_text"/>
     <item android:id="@+id/bottomNavi_communicate"
         android:icon="@drawable/nav_commu_ico"
         android:title="@string/communicate_page_text"/>

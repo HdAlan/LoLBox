@@ -1,30 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.RegisterActivity"
-    android:padding="@dimen/margin_normal_horizon">
-    <TableRow
+    android:orientation="vertical">
+    <com.edu.henu.ajy.lolbox.Layouts.TitleLayout
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:paddingHorizontal="10dp">
         <TextView
-            android:text="手机号："
+            android:text="用户名"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/uname"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:paddingVertical="5sp"
+            android:gravity="right"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:background="@color/colorGray"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:paddingHorizontal="10dp">
+        <TextView
+            android:text="邮箱"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="可选"
+            android:background="@color/colorWhite"
+            android:paddingVertical="5sp"
+            android:gravity="right"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:background="@color/colorGray"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:paddingHorizontal="10dp">
+        <TextView
+            android:text="手机号"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <EditText
             android:id="@+id/loginAccount"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content" />
-    </TableRow>
-    <TableRow
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:paddingVertical="5sp"
+            android:gravity="right"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:background="@color/colorGray"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="@color/colorWhite"
+        android:paddingHorizontal="10dp">
         <TextView
-            android:text="密码："
+            android:text="密码"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <EditText
@@ -32,12 +92,24 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"/>
-    </TableRow>
-    <TableRow>
+            android:inputType="textPassword"
+            android:background="@color/colorWhite"
+            android:paddingVertical="5sp"
+            android:gravity="right"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:background="@color/colorGray"/>
+
         <Button
             android:id="@+id/registerSubmit"
-            android:layout_weight="1"
-            android:text="确认注册"/>
-    </TableRow>
-</TableLayout>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="确认注册"
+            android:textSize="20sp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorBlack"
+            android:layout_marginVertical="@dimen/marginVertical"
+            android:layout_marginHorizontal="@dimen/margin_normal_horizon"/>
+</LinearLayout>

@@ -17,6 +17,9 @@ import com.edu.henu.ajy.lolbox.R;
 import com.edu.henu.ajy.lolbox.Utils.HttpUtil;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -43,6 +46,7 @@ public class PublishCommunityArticalActivity extends AppCompatActivity {
     private String userAccount;
     private EditText titleE,contentE;
     private TitleLayout topBar;
+    private Calendar calendar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +56,7 @@ public class PublishCommunityArticalActivity extends AppCompatActivity {
         userAccount = intent.getStringExtra("loginAccount");
         titleE = findViewById(R.id.title);
 
+        calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
         topBar = findViewById(R.id.topBar);
         topBar.setTitle("发表帖子");
         topBar.setTitleGravity(Gravity.CENTER);
@@ -64,6 +69,10 @@ public class PublishCommunityArticalActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String title = titleE.getText().toString();
                 String content = contentE.getText().toString();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH)+1;
+                int day = calendar.get(Calendar.DATE);
+                artical_time=year+"-"+month+"-"+day;
                 RequestBody body = new FormBody.Builder()
                         .add("def", DEF)
                         .add("title", title)

@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.edu.henu.ajy.lolbox.Fragments.CommunicateFragment;
 import com.edu.henu.ajy.lolbox.Fragments.DiscoverFragment;
+import com.edu.henu.ajy.lolbox.Fragments.FriendFragment;
 import com.edu.henu.ajy.lolbox.Fragments.MeFragment;
 import com.edu.henu.ajy.lolbox.Models.User;
 import com.edu.henu.ajy.lolbox.R;
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     public static String LOGINSERVER = "http://henuajy.zicp.vip/lolboxserver/LoginServlet";
     public static String REGISTERSERVER = "http://henuajy.zicp.vip/lolboxserver/RegisterServlet";
     public static String GetUserInfo="http://henuajy.zicp.vip/lolboxserver/GetUserInfoServlet";
+    public static String GETSCORELIST="http://henuajy.zicp.vip/lolboxserver/GetScoreListServlet";
+    public static String GETCOMMENTS="http://henuajy.zicp.vip/lolboxserver/GetCommentsServlet";
+    public static String SENDCOMMENT="http://henuajy.zicp.vip/lolboxserver/SendCommentServlet";
     private BottomNavigationView bottomNavigationView;
     private int PageFlag = 1;
 
@@ -57,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.bottomNavi_discover:
                         transition.replace(R.id.contentFrame,new DiscoverFragment()).commit();
                         PageFlag = 1;
+                        break;
+                    case R.id.bottomNavi_friends:
+                        transition.replace(R.id.contentFrame,new FriendFragment()).commit();
+                        PageFlag = 2;
                         break;
                     case R.id.bottomNavi_communicate:
                         transition.replace(R.id.contentFrame,new CommunicateFragment()).commit();

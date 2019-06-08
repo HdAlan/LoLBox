@@ -50,7 +50,21 @@ public class TitleLayout extends LinearLayout {
     public void hideForward(){
         forward.setVisibility(INVISIBLE);
     }
+    public void hideTitle(){
+        titleText.setVisibility(INVISIBLE);
+    }
 
+    public void hideOperate(){
+        operateText.setVisibility(INVISIBLE);
+    }
+
+    public void showBack(){
+        back.setVisibility(VISIBLE);
+    }
+
+    public void hideBottomBlackLine(){
+        bottomLine.setVisibility(INVISIBLE);
+    }
     public void setUserHead(int bitmap){
         userHead.setImageResource(bitmap);
     }
@@ -127,6 +141,9 @@ public class TitleLayout extends LinearLayout {
         this.send = send;
     }
 
+    public void setBackImage(int img){
+        back.setImageResource(img);
+    }
     public void showSendBtn(){
         send.setVisibility(VISIBLE);
     }

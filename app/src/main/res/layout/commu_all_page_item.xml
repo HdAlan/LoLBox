@@ -13,20 +13,19 @@
             android:gravity="center_vertical"
             android:layout_marginVertical="@dimen/marginVertical">
             <ImageView
-                android:id="@+id/user_head_pic"
+                android:id="@+id/head_pic"
                 android:layout_width="30dp"
                 android:layout_height="30dp"/>
             <TextView
-                android:id="@+id/user_name_text"
+                android:id="@+id/uname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_short_horizon"
                 android:layout_toRightOf="@id/user_head_pic"
-                android:text="困困"
                 android:textSize="@dimen/textsize_nomal"
                 android:textColor="@color/colorBlack"/>
             <TextView
-                android:id="@+id/user_level"
+                android:id="@+id/ulevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/user_name_text"
@@ -37,36 +36,33 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/artical_title"
+            android:id="@+id/content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/user_head_pic"
             android:textSize="@dimen/textsize_verylarge"
             android:textColor="@color/colorBlack"/>
         <TextView
-            android:id="@+id/artical_summary"
+            android:id="@+id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/artical_title"
-            android:maxLines="2"
-            android:text="对声音好听得男孩子没有抵抗力"
+            android:layout_below="@id/content"
             android:textSize="@dimen/textsize_large"/>
         <ImageView
-            android:id="@+id/artical_img"
+            android:id="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/artical_summary"/>
+            android:layout_below="@id/summary"/>
         <LinearLayout
-             android:layout_below="@id/artical_img"
+             android:layout_below="@id/image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical">
             <TextView
-                android:id="@+id/artical_cate"
+                android:id="@+id/cate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="综合频道"
                 android:textSize="@dimen/textsize_nomal"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -75,41 +71,36 @@
                 android:text="·"
                 android:textSize="@dimen/textsize_nomal"/>
             <TextView
-                android:id="@+id/artical_time"
+                android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2"
                 android:textSize="@dimen/textsize_nomal"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
             <ImageView
-                android:id="@+id/comment_ico"
+                android:id="@+id/commentBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_short_horizon"
                 android:background="@drawable/ic_game_comment_comment"/>
             <TextView
-                android:id="@+id/comment_count"
+                android:id="@+id/commentCounts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="39"
                 android:textSize="@dimen/textsize_nomal"/>
             <ImageView
-                android:id="@+id/like_ico"
+                android:id="@+id/thumbupBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_short_horizon"
                 android:background="@drawable/ic_game_comment_up_unchecked"/>
             <TextView
-                android:id="@+id/like_count"
+                android:id="@+id/thumbupCounts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="35"
                 android:textSize="@dimen/textsize_nomal"/>
         </LinearLayout>
-
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>

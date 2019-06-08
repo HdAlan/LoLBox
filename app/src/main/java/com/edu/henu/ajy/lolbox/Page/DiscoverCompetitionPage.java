@@ -45,7 +45,7 @@ public class DiscoverCompetitionPage extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 DiscoverListItem item = list.get(position);
-                ShowContentActivity.startThisActivity(getActivity(),item.getTitle(),item.getAuthor(),item.getContent(),item.getPicturePath());
+                //ShowContentActivity.startThisActivity(getActivity(),item.getTitle(),item.getAuthor(),item.getContent(),item.getPicturePath());
             }
         });
         IniList();
@@ -76,7 +76,6 @@ public class DiscoverCompetitionPage extends Fragment {
                     public void run() {
                         adapter = new DiscoverListAdapter(list,getActivity());
                         listView.setAdapter(adapter);
-                        Log.d("DiscoverRecommendPage","请求成功");
                     }
                 });
 

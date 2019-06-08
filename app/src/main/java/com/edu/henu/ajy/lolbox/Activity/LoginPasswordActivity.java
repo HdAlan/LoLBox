@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.edu.henu.ajy.lolbox.Layouts.TitleLayout;
 import com.edu.henu.ajy.lolbox.Models.User;
 import com.edu.henu.ajy.lolbox.Utils.DBHelper;
 import com.edu.henu.ajy.lolbox.Utils.HttpUtil;
@@ -35,10 +36,20 @@ public class LoginPasswordActivity extends AppCompatActivity {
     EditText loginPasswordE;
     private DBHelper dbHelper;
     private User user=null;
+    private TitleLayout topBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_password);
+
+        getSupportActionBar().hide();
+        topBar = findViewById(R.id.topBar);
+        topBar.setBackImage(R.drawable.ic_back_in_login);
+        topBar.hideForward();
+        topBar.hideTitle();
+        topBar.hideOperate();
+        topBar.showBack();
+        topBar.hideBottomBlackLine();
 
         Intent intent = getIntent();
         loginAccount = intent.getStringExtra("loginAccount");

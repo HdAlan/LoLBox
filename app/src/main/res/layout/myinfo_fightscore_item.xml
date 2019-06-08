@@ -10,7 +10,6 @@
             android:id="@+id/hero_pic"
             android:layout_width="@dimen/head_pic_h_w"
             android:layout_height="@dimen/head_pic_h_w"
-            android:background="@drawable/ic_launcher"
             android:layout_margin="2dp"/>
         <LinearLayout
             android:id="@+id/linearlay1"
@@ -26,7 +25,6 @@
                 android:layout_weight="1"
                 android:gravity="bottom"
                 android:layout_marginBottom="@dimen/marginVertical"
-                android:text="胜利 4/2/2"
                 android:textSize="@dimen/textsize_large"
                 android:layout_toRightOf="@id/hero_pic"/>
             <TextView
@@ -34,8 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:gravity="top"
-                android:text="经典匹配"/>
+                android:gravity="top"/>
         </LinearLayout>
         <TextView
             android:layout_toRightOf="@id/linearlay1"
@@ -44,7 +41,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:layout_centerVertical="true"
-            android:text="03-29 20:02"/>
+            android:layout_centerVertical="true"/>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
